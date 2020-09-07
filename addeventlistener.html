@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .content {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: lightgoldenrodyellow;
+    }
+
+    .parent {
+      width: 400px;
+      height: 400px;
+      background-color: lightskyblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+    }
+
+    .child {
+      width: 50%;
+      height: 50%;
+      background-color: salmon;
+    }
+
+    .child~.sibling {
+      width: 30%;
+      height: 30%;
+      background-color: slateblue;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="parent">
+      <div class="child"></div>
+      <div class="sibling"></div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      let parent1 = document.getElementsByClassName('parent')[0];
+      let child1 = document.getElementsByClassName('child')[0];
+
+      parent1.addEventListener('click', function (e) {
+        console.log('parent1');
+      }, false);
+
+      child1.addEventListener('click', function (e) {
+        console.log('child1');
+      }, false);
+
+      let parent2 = document.getElementsByClassName('parent')[1];
+      let child2 = document.getElementsByClassName('child')[1];
+      let sibling1 = document.getElementsByClassName('sibling')[0];
+
+      parent2.addEventListener('click', function (e) {
+        console.log('parent2');
+      }, false);
+
+      child2.addEventListener('click', function (e) {
+        console.log('child2');
+      }, false);
+
+      sibling1.addEventListener('click', function (e) {
+        console.log('sibling1');
+      }, false);
+    }
+  </script>
+</body>
+
+</html>
